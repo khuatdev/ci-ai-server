@@ -1,0 +1,23 @@
+{
+  "name": "chatgptproxy",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chatgpt": "^5.2.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.17.1",
+    "node-fetch": "^3.3.2",
+    "ora": "^6.3.1",
+    "unfetch": "^5.0.0",
+    "yarn": "^1.22.19"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "devDependencies": {},
+  "author": "",
+  "description": ""
+}
