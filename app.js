@@ -131,7 +131,7 @@ ${givenSample}
       }
     }
     if (finalRes == '') {
-      return res.status(500).json({ error: 'response not in format of json' });
+      return res.status(400).json({ error: data });
     }
     return res.status(200).json({ result: JSON.parse(finalRes)});
   }).catch((err) => {
@@ -153,10 +153,6 @@ app.post('/v1/config', (req, res) => {
   res.sendStatus(200);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
 // POST /v1/completions endpoint
 app.post('/v1/completions', (req, res) => {
   const { outline } = req.body;
@@ -172,4 +168,8 @@ Outline: ${outline}
     console.log(err)
     return res.status(500).json({ error: 'INTERNAL SERVER ERROR' });
   });
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
