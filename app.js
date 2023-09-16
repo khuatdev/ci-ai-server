@@ -158,7 +158,7 @@ app.listen(port, () => {
 });
 
 // POST /v1/completions endpoint
-app.post('/v1/completions', (req, res) => {)
+app.post('/v1/completions', (req, res) => {
   const { outline } = req.body;
   const prompt = `
 From the given json outline, generate a summary for the given outline.
