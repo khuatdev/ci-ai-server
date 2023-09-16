@@ -156,3 +156,20 @@ app.post('/v1/config', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+// POST /v1/completions endpoint
+app.post('/v1/completions', (req, res) => {)
+  const { outline } = req.body;
+  const prompt = `
+From the given json outline, generate a summary for the given outline.
+Outline: ${outline}
+  `;
+  const response = main(prompt, accessToken);
+  response.then((data) => {
+    // Respond with the received note as text
+    return res.status(200).json({ result: data });
+  }).catch((err) => {
+    console.log(err)
+    return res.status(500).json({ error: 'INTERNAL SERVER ERROR' });
+  });
+});
