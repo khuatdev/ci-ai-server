@@ -133,8 +133,7 @@ ${givenSample}
     if (finalRes == '') {
       return res.status(500).json({ error: 'response not in format of json' });
     }
-    jsonRes = JSON.parse(finalRes);
-    return res.status(200).json({ result: jsonRes});
+    return res.status(200).json({ result: JSON.parse(finalRes)});
   }).catch((err) => {
     console.log(err)
     return res.status(500).json({ error: 'INTERNAL SERVER ERROR' });
