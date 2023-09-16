@@ -7,7 +7,7 @@ async function searchWikipedia(keyword) {
 
     // Wikipedia API endpoint for searching
     const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${encodedKeyword}&utf8=1`;
-
+    console.log(apiUrl);
     // Make the request to Wikipedia API
     const response = await fetch(apiUrl);
     if (!response.ok) {
@@ -39,7 +39,7 @@ async function searchWikipedia(keyword) {
 }
 
 // Example usage:
-const keyword = 'Node.js'; // Replace with your desired keyword
+const keyword = 'Deep Learning và Mạng Nơ-ron Nhân Tạo'; // Replace with your desired keyword
 searchWikipedia(keyword)
   .then((result) => {
     if (result.error) {

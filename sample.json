@@ -1,3 +1,46 @@
+# Sample 1
+```
+{
+  "name": "Kawhi Anthony Leonard",
+  "ref_url": "https://vi.wikipedia.org/wiki/Kawhi_Leonard",
+  "children": [
+    {
+      "name": "Thông tin cá nhân",
+      "children": [
+        { "name": "Ngày sinh: 29 tháng 6 năm 1991"},
+        { "name": "Quốc tịch: Mỹ" }
+      ]
+    },
+    {
+      "name": "Sự nghiệp",
+      "children": [
+        { "name": "Vị trí: Cầu thủ bóng rổ chuyên nghiệp" },
+        { "name": "Đội bóng: Los Angeles Clippers", "ref_url": "https://vi.wikipedia.org/wiki/Los_Angeles_Clippers" },
+        { "name": "Giải đấu: Giải bóng rổ Nhà nghề Mỹ (NBA)", "ref_url": "https://vi.wikipedia.org/wiki/Giải_bóng_rổ_Nhà_nghề_Mỹ"}
+      ]
+    },
+    {
+      "name": "Sự nghiệp đại học",
+      "children": [
+        { "name": "Đại học: San Diego State Aztecs", "ref_url": "https://vi.wikipedia.org/wiki/San_Diego_State_Aztecs" },
+        { "name": "Thời gian đại học: Hai mùa bóng rổ đại học" },
+        { "name": "Thành tích đại học: Được bầu chọn vào đội thứ hai All-American lúc là sinh viên năm hai" }
+      ]
+    },
+    {
+      "name": "NBA Draft",
+      "children": [
+        { "name": "Năm draft: 2011" },
+        { "name": "Lượt chọn: Lượt chọn thứ 15 trong NBA draft 2011" },
+        { "name": "Trao đổi: Traded to San Antonio Spurs ngay trong ngày draft" }
+      ]
+    }
+  ]
+}
+```
+
+# Sample 2
+```
 {
   "name": "Leonardo da Vinci",
   "children": [
@@ -15,22 +58,14 @@
     {
       "name": "Sự nghiệp",
       "children": [
-        {
-          "name": "Nghề nghiệp",
+        { "name": "Nghề nghiệp", 
           "children": [
-            { "name": "Họa sĩ" },
-            { "name": "nhà điêu khắc" },
-            { "name": "kiến trúc sư" },
-            { "name": "nhạc sĩ" },
-            { "name": "bác sĩ" },
-            { "name": "kỹ sư" },
-            { "name": "nhà giải phẫu" },
-            { "name": "nhà phát minh" },
-            { "name": "nhà triết học tự nhiên" }
+            { "name": "Họa sĩ" }, 
+            { "name": "nhà điêu khắc"},
+            { "name": "kiến trúc sư"}
           ]
         },
-        {
-          "name": "Tác phẩm nổi tiếng",
+        { "name": "Tác phẩm nổi tiếng",
           "children": [
             { "name": "Mona Lisa" },
             { "name": "Bữa ăn tối cuối cùng" }
@@ -41,34 +76,33 @@
     {
       "name": "Sáng chế và ý tưởng",
       "children": [
-        {
-          "name": "Ý tưởng nổi bật",
-          "children": [
-            { "name": "Máy bay trực thăng" },
-            { "name": "xe tăng" },
-            { "name": "dù nhảy" },
-            { "name": "sử dụng năng lượng Mặt Trời" },
-            { "name": "máy tính" },
-            { "name": "sơ thảo lý thuyết kiến tạo địa hình" },
-            { "name": "tàu đáy kép" },
-            { "name": "các nghiên cứu khác" }
+        { "name": "Ý tưởng nổi bật",
+          "children": [ 
+            { "name": "Máy bay trực thăng" }
           ]
         }
       ]
+    }
+  ],
+  "keywords": [
+    {
+      "keyword": "Leonardo da Vinci",
+      "ref_url": "https://vi.wikipedia.org/wiki/Leonardo_da_Vinci"
     },
     {
-      "name": "Đóng góp khoa học",
-      "children": [
-        { "name": "Ứng dụng khoa học trong chế biến kim loại và trong kỹ thuật ở thời đại Phục Hưng" },
-        { "name": "Kiến thức và sự hiểu biết trong giải phẫu học, thiên văn học, xây dựng dân dụng, quang học và nghiên cứu về thủy lực" }
-      ]
+      "keyword": "Mona Lisa",
+      "ref_url": "https://vi.wikipedia.org/wiki/Mona_Lisa"
     },
     {
-      "name": "Sản phẩm lưu lại",
-      "children": [
-        { "name": "Vài bức hoạ" },
-        { "name": "Vài quyển sổ nháp tay" }
-      ]
+      "keyword": "Bữa ăn tối cuối cùng",
+      "ref_url": "https://vi.wikipedia.org/wiki/B%E1%BB%AFa_%C4%83n_t%E1%BB%91i_cu%E1%BB%91i_c%C3%B9ng_(Leonardo_da_Vinci)"
+    },
+    {
+      "keyword": "Máy bay trực thăng",
+      "ref_url": "https://vi.wikipedia.org/wiki/M%C3%A1y_bay_tr%E1%BB%B1c_th%C3%A2ng"
     }
   ]
 }
+```
+
+

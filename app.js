@@ -7,9 +7,30 @@ const port = 3000;
 
 const givenSample = `
 # Sample 1
+Context: "Kawhi Anthony Leonard (/kəˈwaɪ/, sinh ngày 29 tháng 6 năm 1991) là một cầu thủ bóng rổ chuyên nghiệp người Mỹ chơi cho Los Angeles Clippers tại Giải bóng rổ Nhà nghề Mỹ (NBA). Leonard đã chơi hai mùa bóng rổ đại học cho San Diego State Aztecs và được bầu chọn vào đội thứ hai All-American lúc là sinh viên năm hai. Indiana Pacers đã chọn anh với lượt chọn thứ 15 trong NBA draft 2011 nhưng đã được trao đổi với San Antonio Spurs ngay trong ngày draft."
+Output:
 \`\`\`
 {
+  "keywords": [
+    {
+      "keyword": "Kawhi Leonard",
+      "ref_url": "https://vi.wikipedia.org/wiki/Kawhi_Leonard"
+    },
+    {
+      "keyword": "Los Angeles Clippers",
+      "ref_url": "https://vi.wikipedia.org/wiki/Los_Angeles_Clippers"
+    },
+    {
+      "keyword": "Giải bóng rổ Nhà nghề Mỹ",
+      "ref_url": "https://vi.wikipedia.org/wiki/Giải_bóng_rổ_Nhà_nghề_Mỹ"
+    },
+    {
+      "keyword": "San Diego State Aztecs",
+      "ref_url": "https://vi.wikipedia.org/wiki/San_Diego_State_Aztecs"
+    }
+  ],
   "name": "Kawhi Anthony Leonard",
+  "ref_url": "https://vi.wikipedia.org/wiki/Kawhi_Leonard",
   "children": [
     {
       "name": "Thông tin cá nhân",
@@ -22,14 +43,14 @@ const givenSample = `
       "name": "Sự nghiệp",
       "children": [
         { "name": "Vị trí: Cầu thủ bóng rổ chuyên nghiệp" },
-        { "name": "Đội bóng: Los Angeles Clippers" },
-        { "name": "Giải đấu: Giải bóng rổ Nhà nghề Mỹ (NBA)" }
+        { "name": "Đội bóng: Los Angeles Clippers", "ref_url": "https://vi.wikipedia.org/wiki/Los_Angeles_Clippers" },
+        { "name": "Giải đấu: Giải bóng rổ Nhà nghề Mỹ (NBA)", "ref_url": "https://vi.wikipedia.org/wiki/Giải_bóng_rổ_Nhà_nghề_Mỹ"}
       ]
     },
     {
       "name": "Sự nghiệp đại học",
       "children": [
-        { "name": "Đại học: San Diego State Aztecs" },
+        { "name": "Đại học: San Diego State Aztecs", "ref_url": "https://vi.wikipedia.org/wiki/San_Diego_State_Aztecs" },
         { "name": "Thời gian đại học: Hai mùa bóng rổ đại học" },
         { "name": "Thành tích đại học: Được bầu chọn vào đội thứ hai All-American lúc là sinh viên năm hai" }
       ]
@@ -47,9 +68,30 @@ const givenSample = `
 \`\`\`
 
 # Sample 2
+Context: "Kawhi Anthony Leonard (/kəˈwaɪ/, sinh ngày 29 tháng 6 năm 1991) là một cầu thủ bóng rổ chuyên nghiệp người Mỹ chơi cho Los Angeles Clippers tại Giải bóng rổ Nhà nghề Mỹ (NBA). Leonard đã chơi hai mùa bóng rổ đại học cho San Diego State Aztecs và được bầu chọn vào đội thứ hai All-American lúc là sinh viên năm hai. Indiana Pacers đã chọn anh với lượt chọn thứ 15 trong NBA draft 2011 nhưng đã được trao đổi với San Antonio Spurs ngay trong ngày draft."
+Output:
 \`\`\`
 {
+  "keywords": [
+    {
+      "keyword": "Leonardo da Vinci",
+      "ref_url": "https://vi.wikipedia.org/wiki/Leonardo_da_Vinci"
+    },
+    {
+      "keyword": "Mona Lisa",
+      "ref_url": "https://vi.wikipedia.org/wiki/Mona_Lisa"
+    },
+    {
+      "keyword": "Bữa ăn tối cuối cùng",
+      "ref_url": "https://vi.wikipedia.org/wiki/B%E1%BB%AFa_%C4%83n_t%E1%BB%91i_cu%E1%BB%91i_c%C3%B9ng_(Leonardo_da_Vinci)"
+    },
+    {
+      "keyword": "Máy bay trực thăng",
+      "ref_url": "https://vi.wikipedia.org/wiki/M%C3%A1y_bay_tr%E1%BB%B1c_th%C3%A2ng"
+    }
+  ],
   "name": "Leonardo da Vinci",
+  "ref_url": "https://vi.wikipedia.org/wiki/Leonardo_da_Vinci",
   "children": [
     {
       "name": "Thông tin cá nhân",
@@ -74,8 +116,8 @@ const givenSample = `
         },
         { "name": "Tác phẩm nổi tiếng",
           "children": [
-            { "name": "Mona Lisa" },
-            { "name": "Bữa ăn tối cuối cùng" }
+            { "name": "Mona Lisa", "ref_url": "https://vi.wikipedia.org/wiki/Mona_Lisa" },
+            { "name": "Bữa ăn tối cuối cùng", "ref_url": "https://vi.wikipedia.org/wiki/B%E1%BB%AFa_%C4%83n_t%E1%BB%91i_cu%E1%BB%91i_c%C3%B9ng_(Leonardo_da_Vinci)" }
           ]
         }
       ]
@@ -85,13 +127,12 @@ const givenSample = `
       "children": [
         { "name": "Ý tưởng nổi bật",
           "children": [ 
-            { "name": "Máy bay trực thăng" }
+            { "name": "Máy bay trực thăng", "ref_url": "https://vi.wikipedia.org/wiki/M%C3%A1y_bay_tr%E1%BB%B1c_th%C3%A2ng" }
           ]
         }
       ]
     }
-  ]
-}
+  ]}
 \`\`\`
 `
 // Middleware to parse JSON request bodies
@@ -109,8 +150,10 @@ app.post('/v1/generate', (req, res) => {
   const prompt = `
 context: "${note}"
 
-Sumarize context then output as Tree Json Format like samples below:
+Generate a JSON tree structure from the provided text. Please identify and include any relevant reference links to external sources for additional information.
+Sample:  
 ${givenSample}
+!IMPORTANT: Please output only the json file. Otherwise, the result will be treated as incorrect.
 `;
   const response = main(prompt, accessToken);
   response.then((data) => {
