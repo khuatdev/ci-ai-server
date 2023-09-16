@@ -7,6 +7,7 @@ const port = 3000;
 
 const givenSample = `
 # Sample 1
+\`\`\`
 {
   "name": "Kawhi Anthony Leonard",
   "children": [
@@ -43,8 +44,10 @@ const givenSample = `
     }
   ]
 }
+\`\`\`
 
 # Sample 2
+\`\`\`
 {
   "name": "Leonardo da Vinci",
   "children": [
@@ -89,7 +92,7 @@ const givenSample = `
     }
   ]
 }
-
+\`\`\`
 `
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
