@@ -6,13 +6,43 @@ const app = express();
 const port = 3000;
 
 const givenSample = `
-graph TB
-  A[Root]
-  B[Branch 1]
-  C[Branch 2]
-  
-  A --> B
-  A --> C
+{
+  "name": "Kawhi Anthony Leonard",
+  "children": [
+    {
+      "name": "Thông tin cá nhân",
+      "children": [
+        { "name": "Ngày sinh: 29 tháng 6 năm 1991"},
+        { "name": "Quốc tịch: Mỹ" }
+      ]
+    },
+    {
+      "name": "Sự nghiệp",
+      "children": [
+        { "name": "Vị trí: Cầu thủ bóng rổ chuyên nghiệp" },
+        { "name": "Đội bóng: Los Angeles Clippers" },
+        { "name": "Giải đấu: Giải bóng rổ Nhà nghề Mỹ (NBA)" }
+      ]
+    },
+    {
+      "name": "Sự nghiệp đại học",
+      "children": [
+        { "name": "Đại học: San Diego State Aztecs" },
+        { "name": "Thời gian đại học: Hai mùa bóng rổ đại học" },
+        { "name": "Thành tích đại học: Được bầu chọn vào đội thứ hai All-American lúc là sinh viên năm hai" }
+      ]
+    },
+    {
+      "name": "NBA Draft",
+      "children": [
+        { "name": "Năm draft: 2011" },
+        { "name": "Lượt chọn: Lượt chọn thứ 15 trong NBA draft 2011" },
+        { "name": "Trao đổi: Traded to San Antonio Spurs ngay trong ngày draft" }
+      ]
+    }
+  ]
+}
+
 `
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
@@ -28,11 +58,8 @@ app.post('/v1/generate', (req, res) => {
   }
   const prompt = `
 context: "${note}"
----
-title: MainContent
----
 
-convert context to sample mermaid :
+Sumerize context then output as Tree Json Format like sample below:
 ${givenSample}
 `;
   const response = main(prompt, accessToken);
