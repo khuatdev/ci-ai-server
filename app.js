@@ -128,9 +128,10 @@ ${givenSample}
       }
     }
     if (finalRes == '') {
-      return res.status(200).json({ error: 'response not in format of mermaid' });
+      return res.status(500).json({ error: 'response not in format of json' });
     }
-    return res.status(200).json({ result: finalRes});
+    jsonRes = JSON.parse(finalRes);
+    return res.status(200).json({ result: jsonRes});
   }).catch((err) => {
     console.log(err)
     return res.status(500).json({ error: 'INTERNAL SERVER ERROR' });

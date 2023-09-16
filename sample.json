@@ -15,14 +15,22 @@
     {
       "name": "Sự nghiệp",
       "children": [
-        { "name": "Nghề nghiệp", 
+        {
+          "name": "Nghề nghiệp",
           "children": [
-            { "name": "Họa sĩ" }, 
-            { "name": "nhà điêu khắc"},
-            { "name": "kiến trúc sư"}
+            { "name": "Họa sĩ" },
+            { "name": "nhà điêu khắc" },
+            { "name": "kiến trúc sư" },
+            { "name": "nhạc sĩ" },
+            { "name": "bác sĩ" },
+            { "name": "kỹ sư" },
+            { "name": "nhà giải phẫu" },
+            { "name": "nhà phát minh" },
+            { "name": "nhà triết học tự nhiên" }
           ]
         },
-        { "name": "Tác phẩm nổi tiếng",
+        {
+          "name": "Tác phẩm nổi tiếng",
           "children": [
             { "name": "Mona Lisa" },
             { "name": "Bữa ăn tối cuối cùng" }
@@ -33,13 +41,34 @@
     {
       "name": "Sáng chế và ý tưởng",
       "children": [
-        { "name": "Ý tưởng nổi bật",
-          "children": [ 
-            { "name": "Máy bay trực thăng" }
+        {
+          "name": "Ý tưởng nổi bật",
+          "children": [
+            { "name": "Máy bay trực thăng" },
+            { "name": "xe tăng" },
+            { "name": "dù nhảy" },
+            { "name": "sử dụng năng lượng Mặt Trời" },
+            { "name": "máy tính" },
+            { "name": "sơ thảo lý thuyết kiến tạo địa hình" },
+            { "name": "tàu đáy kép" },
+            { "name": "các nghiên cứu khác" }
           ]
         }
+      ]
+    },
+    {
+      "name": "Đóng góp khoa học",
+      "children": [
+        { "name": "Ứng dụng khoa học trong chế biến kim loại và trong kỹ thuật ở thời đại Phục Hưng" },
+        { "name": "Kiến thức và sự hiểu biết trong giải phẫu học, thiên văn học, xây dựng dân dụng, quang học và nghiên cứu về thủy lực" }
+      ]
+    },
+    {
+      "name": "Sản phẩm lưu lại",
+      "children": [
+        { "name": "Vài bức hoạ" },
+        { "name": "Vài quyển sổ nháp tay" }
       ]
     }
   ]
 }
-
