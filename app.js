@@ -8,8 +8,8 @@ const port = 3000;
 const givenSample = `
 graph TB
   A[Root]
-  B[<<Branch 1>>]
-  C[<<Branch 2>>]
+  B[Branch 1]
+  C[Branch 2]
   
   A --> B
   A --> C
@@ -20,22 +20,20 @@ app.use(bodyParser.json());
 let accessToken = null;
 
 // POST /v1/completions endpoint
-app.post('/v1/completions', (req, res) => {
+app.post('/v1/generate', (req, res) => {
   const { note } = req.body;
 
   if (!note) {
     return res.status(400).json({ error: 'Note is required in the request body' });
   }
   const prompt = `
----
-title: <<MainContent>>
----
 context: "${note}"
+---
+title: MainContent
+---
 
 convert context to sample mermaid :
 ${givenSample}
-
-replace value inside <<value>> with appropriate value
 `;
   const response = main(prompt, accessToken);
   response.then((data) => {
@@ -58,7 +56,7 @@ replace value inside <<value>> with appropriate value
     if (finalRes == '') {
       return res.status(200).json({ error: 'response not in format of mermaid' });
     }
-    return res.status(200).json({error: finalRes});
+    return res.status(200).json({ result: finalRes});
   }).catch((err) => {
     console.log(err)
     return res.status(500).json({ error: 'INTERNAL SERVER ERROR' });
