@@ -6,6 +6,7 @@ const app = express();
 const port = 3000;
 
 const givenSample = `
+# Sample 1
 {
   "name": "Kawhi Anthony Leonard",
   "children": [
@@ -43,6 +44,52 @@ const givenSample = `
   ]
 }
 
+# Sample 2
+{
+  "name": "Leonardo da Vinci",
+  "children": [
+    {
+      "name": "Thông tin cá nhân",
+      "children": [
+        { "name": "Ngày sinh: 15 tháng 4 năm 1452" },
+        { "name": "Nơi sinh: Anchiano, Ý" },
+        { "name": "Ngày mất: 2 tháng 5 năm 1519" },
+        { "name": "Nơi mất: Amboise, Pháp" },
+        { "name": "Tên khai sinh: Leonardo di ser Piero da Vinci" },
+        { "name": "Quốc tịch: Ý" }
+      ]
+    },
+    {
+      "name": "Sự nghiệp",
+      "children": [
+        { "name": "Nghề nghiệp", 
+          "children": [
+            { "name": "Họa sĩ" }, 
+            { "name": "nhà điêu khắc"},
+            { "name": "kiến trúc sư"}
+          ]
+        },
+        { "name": "Tác phẩm nổi tiếng",
+          "children": [
+            { "name": "Mona Lisa" },
+            { "name": "Bữa ăn tối cuối cùng" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sáng chế và ý tưởng",
+      "children": [
+        { "name": "Ý tưởng nổi bật",
+          "children": [ 
+            { "name": "Máy bay trực thăng" }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
 `
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
@@ -59,7 +106,7 @@ app.post('/v1/generate', (req, res) => {
   const prompt = `
 context: "${note}"
 
-Sumerize context then output as Tree Json Format like sample below:
+Sumarize context then output as Tree Json Format like samples below:
 ${givenSample}
 `;
   const response = main(prompt, accessToken);
