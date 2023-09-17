@@ -38,16 +38,118 @@ async function searchWikipedia(keyword) {
   }
 }
 
-// Example usage:
-const keyword = 'Deep Learning và Mạng Nơ-ron Nhân Tạo'; // Replace with your desired keyword
-searchWikipedia(keyword)
-  .then((result) => {
-    if (result.error) {
-      console.error(`Error: ${result.error}`);
-    } else {
-      console.log(`URL of the first search result: ${result}`);
+export const additonalData = async (jsonString) => {
+  const json = JSON.parse(jsonString);
+  const listChildren = json.children;
+  const newChildren = [];
+  for (let i = 0; i < listChildren.length; i++) {
+    const child = listChildren[i];
+    if (child.ref_url == '' || child.ref_url == "#") {
+      const url = await searchWikipedia(child.name);
+      console.log(url);
+      if (url.error) {
+        console.log(url.error);
+        child.ref_url = "#";
+      } else {
+        console.log(`child: ${child.name} url: ${url}`);
+        child.ref_url = url;
+      }
     }
-  })
-  .catch((error) => {
-    console.error(`Error: ${error}`);
-  });
+    if (child.children) {
+      const res = await additonalData(JSON.stringify(child));
+      if (res.error) {
+        console.log(res.error);
+      }
+    }
+    newChildren.push(child);
+    json.children = newChildren;
+  }
+  return json;
+}
+
+// Example usage:
+const sampleJson= `
+  {
+    "keywords": [
+      {
+        "keyword": "orthogonalization in machine learning",
+        "ref_url": ""
+      },
+      {
+        "keyword": "hyperparameters",
+        "ref_url": ""
+      },
+      {
+        "keyword": "tuned",
+        "ref_url": ""
+      },
+      {
+        "keyword": "model",
+        "ref_url": ""
+      },
+      {
+        "keyword": "performance",
+        "ref_url": ""
+      }
+    ],
+    "name": "Orthogonalization in Machine Learning",
+    "children": [
+      {
+        "name": "Process",
+        "children": [
+          {
+            "name": "Identification of Hyperparameters",
+            "children": [
+              {
+                "name": "Definition",
+                "children": [
+                  {
+                    "name": "Hyperparameters",
+                    "ref_url": ""
+                  },
+                  {
+                    "name": "Effect",
+                    "ref_url": ""
+                  }
+                ]
+              },
+              {
+                "name": "Tuning",
+                "children": [
+                  {
+                    "name": "Purpose",
+                    "ref_url": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Clear and Interpretable Functions",
+            "children": [
+              {
+                "name": "Importance",
+                "children": [
+                  {
+                    "name": "Easier Model Tuning",
+                    "ref_url": ""
+                  },
+                  {
+                    "name": "Desired Performance",
+                    "ref_url": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+`;// Replace with your desired keyword
+additonalData(sampleJson).then((data) => {
+  console.log(JSON.stringify(data, null, 4));
+}).catch((err) => {
+  console.log(err);
+})
+

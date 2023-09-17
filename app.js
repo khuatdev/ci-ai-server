@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { main } from './gpt.js'; // Import the "main" function from index.js
+import { additionalData } from './wiki.js'; // Import the "additionalData" function from wiki.js
 
 const app = express();
 const port = 3030;
@@ -177,7 +178,8 @@ ${givenSample}
     if (finalRes == '') {
       return res.status(400).json({ error: data });
     }
-    return res.status(200).json({ result: JSON.parse(finalRes)});
+    const additionalDataResponse = additionalData(finalRes);
+    return res.status(200).json({ result: additionalDataResponse});
   }).catch((err) => {
     console.log(err)
     return res.status(500).json({ error: 'INTERNAL SERVER ERROR' });
@@ -201,8 +203,9 @@ app.post('/v1/config', (req, res) => {
 app.post('/v1/completions', (req, res) => {
   const { outline } = req.body;
   const prompt = `
-From the given json outline, generate a summary for the given outline.
+From the given json outline, generate a summary for the given outline in vietnamese.
 Outline: ${outline}
+!IMPORTANT: Please output only the summary only. Otherwise, the result will be treated as incorrect.
   `;
   const response = main(prompt, accessToken);
   response.then((data) => {
