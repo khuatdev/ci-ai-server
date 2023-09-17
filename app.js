@@ -202,9 +202,9 @@ app.post('/v1/config', (req, res) => {
 app.post('/v1/completions', (req, res) => {
   const { outline } = req.body;
   const prompt = `
-From the given json outline, generate a summary for the given outline in vietnamese.
+From the given json outline, generate a paragraph for the given outline in vietnamese.
 Outline: ${outline}
-!IMPORTANT: Please output only the summary only. Otherwise, the result will be treated as incorrect.
+!IMPORTANT: Please output only the paragraph only. Otherwise, the result will be treated as incorrect.
   `;
   const response = main(prompt, accessToken);
   response.then((data) => {
