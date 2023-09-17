@@ -177,8 +177,7 @@ ${givenSample}
     if (finalRes == '') {
       return res.status(400).json({ error: data });
     }
-    const additionalDataResponse = additionalData(finalRes);
-    return res.status(200).json({ result: additionalDataResponse});
+    return res.status(200).json({ result: JSON.parse(finalRes)});
   }).catch((err) => {
     console.log(err)
     return res.status(500).json({ error: 'INTERNAL SERVER ERROR' });

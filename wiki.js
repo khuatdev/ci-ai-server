@@ -7,7 +7,6 @@ async function searchWikipedia(keyword) {
 
     // Wikipedia API endpoint for searching
     const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${encodedKeyword}&utf8=1`;
-    console.log(apiUrl);
     // Make the request to Wikipedia API
     const response = await fetch(apiUrl);
     if (!response.ok) {
@@ -46,12 +45,10 @@ export const additonalData = async (jsonString) => {
     const child = listChildren[i];
     if (child.ref_url == '' || child.ref_url == "#") {
       const url = await searchWikipedia(child.name);
-      console.log(url);
       if (url.error) {
         console.log(url.error);
         child.ref_url = "#";
       } else {
-        console.log(`child: ${child.name} url: ${url}`);
         child.ref_url = url;
       }
     }
@@ -62,8 +59,8 @@ export const additonalData = async (jsonString) => {
       }
     }
     newChildren.push(child);
-    json.children = newChildren;
   }
+  json.children = newChildren;
   return json;
 }
 
