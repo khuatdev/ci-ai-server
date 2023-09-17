@@ -68,7 +68,8 @@ Output:
 \`\`\`
 
 # Sample 2
-Context: "Kawhi Anthony Leonard (/kəˈwaɪ/, sinh ngày 29 tháng 6 năm 1991) là một cầu thủ bóng rổ chuyên nghiệp người Mỹ chơi cho Los Angeles Clippers tại Giải bóng rổ Nhà nghề Mỹ (NBA). Leonard đã chơi hai mùa bóng rổ đại học cho San Diego State Aztecs và được bầu chọn vào đội thứ hai All-American lúc là sinh viên năm hai. Indiana Pacers đã chọn anh với lượt chọn thứ 15 trong NBA draft 2011 nhưng đã được trao đổi với San Antonio Spurs ngay trong ngày draft."
+Context: "Leonardo da Vinci (phát âm tiếng Ý: [leoˈnardo da ˈvintʃi] i[nb 1]; sinh ngày 15 tháng 4 năm 1452 - tại Anchiano, Ý, mất ngày 2 tháng 5 năm 1519 tại Amboise, Pháp, tên khai sinh là Leonardo di ser Piero da Vinci,[nb 2] là một họa sĩ, nhà điêu khắc, kiến trúc sư, nhạc sĩ, bác sĩ, kỹ sư, nhà giải phẫu, nhà phát minh và nhà triết học tự nhiên người Ý. Ông được coi là thiên tài toàn năng nhất lịch sử nhân loại. Ông là tác giả của những bức hoạ nổi tiếng như Mona Lisa, Bữa ăn tối cuối cùng.Ông là người có những ý tưởng vượt trước thời đại của mình, đặc biệt là khái niệm về máy bay trực thăng, xe tăng, dù nhảy, sử dụng năng lượng Mặt Trời, máy tính, sơ thảo lý thuyết kiến tạo địa hình, tàu đáy kép, cùng nhiều sáng chế khác. Một vài thiết kế của ông đã được thực hiện và khả thi trong lúc ông còn sống. Ứng dụng khoa học trong chế biến kim loại và trong kỹ thuật ở thời đại Phục Hưng còn đang ở trong thời kỳ trứng nước. Thêm vào đó, ông có đóng góp rất lớn vào kiến thức và sự hiểu biết trong giải phẫu học, thiên văn học, xây dựng dân dụng, quang học và nghiên cứu về thủy lực. Những sản phẩm lưu lại trong cuộc đời ông chỉ còn lại vài bức hoạ, cùng với một vài quyển sổ nháp tay (rơi vãi trong nhiều bộ sưu tập khác nhau các sáng tác của ông), bên trong chứa đựng các ký hoạ, minh hoạ về khoa học và bút ký"
+
 Output:
 \`\`\`
 {
