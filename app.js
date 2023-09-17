@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { main } from './gpt.js'; // Import the "main" function from index.js
-import { additionalData } from './wiki.js'; // Import the "additionalData" function from wiki.js
 
 const app = express();
 const port = 3030;
