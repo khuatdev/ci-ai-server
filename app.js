@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import { main } from './gpt.js'; // Import the "main" function from index.js
 
 const app = express();
-const port = 3000;
+const port = 3030;
 
 const givenSample = `
 # Sample 1
